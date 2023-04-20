@@ -131,17 +131,6 @@ def few_valid_deductions():
         "child": 5000
     }    
 
-@pytest.fixture
-def new_valid_deductions():
-    return {
-        "charity": 5000,
-        "mortgage": 5000,
-        "child": 5000,
-        "tuition": 5000,
-        "healthcare": 5000,
-        "sales tax": 5000
-    }
-
 def test_deducted_income_cannot_fall_below_zero():
     income = 10000
 
@@ -199,3 +188,15 @@ def test_taxpayer_owing_tax_has_negative_return(few_valid_deductions):
     refund = taxpayer.calculate_return_2020()
 
     assert refund == -1003
+
+@pytest.fixture
+def new_valid_deductions():
+    return {
+        "charity": 5000,
+        "mortgage": 5000,
+        "child": 5000,
+        "tuition": 5000,
+        "healthcare": 5000,
+        "home office": 5000
+    }
+
